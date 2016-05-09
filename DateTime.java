@@ -34,7 +34,7 @@
      * @throws ParseException
      */
     public static String longToString(long currentTime, String formatType) throws ParseException {
-        Date date = longToDate(currentTime, formatType);
+        Date date = longToDate(currentTime);
         String strTime = dateToString(date, formatType);
         return strTime;
     }
@@ -55,11 +55,8 @@
         return date;
     }
 
-    public static Date longToDate(long currentTime, String formatType) throws ParseException {
-        Date dateOld = new Date(currentTime);
-        String sDateTime = dateToString(dateOld, formatType);
-        Date date = stringToDate(sDateTime, formatType);
-        return date;
+    public static Date longToDate(long currentTime){
+        return new Date(currentTime);
     }
 
     public static long stringToLong(String strTime, String formatType) throws ParseException {
